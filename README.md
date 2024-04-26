@@ -6,3 +6,8 @@
 - Form Handling, and Form validations
 - Advanced Tailwind.
 - Build Multi-Language support.
+
+## Tech Stack
+- React
+- Tailwind
+- Firebase
