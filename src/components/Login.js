@@ -80,7 +80,7 @@ const Login = () => {
             className=" w-4/5 p-2 m-4 bg-red-600 rounded-md font-semibold"
             onClick={handleButtonClick}
           >
-            {isSignInForm ? "Sign Up" : "Sign In"}
+            {isSignInForm ? "Sign In" : "Sign Up"}
           </button>
           <p className="pb-2 w-4/5 text-red-600 font-semibold text-center">
             {errorMessage}
