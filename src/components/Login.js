@@ -9,12 +9,13 @@ import {
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { USER_AVATAR, BACKGROUND_IMAGE } from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const name = useRef(null);
   const email = useRef(null);
@@ -43,7 +44,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -75,7 +75,7 @@ const Login = () => {
           //updating user
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: "https://avatars.githubusercontent.com/u/105204682?v=4 ",
+            photoURL: USER_AVATAR,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
@@ -87,13 +87,11 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-
             })
             .catch((error) => {
               setErrorMessage(error.message);
             });
           console.log(user);
-          
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -109,7 +107,7 @@ const Login = () => {
       <div className="absolute">
         <img
           className="w-screen h-screen"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/058eee37-6c24-403a-95bd-7d85d3260ae1/0e1543b7-90c5-4c31-bd87-feb483138d31/NP-en-20240422-POP_SIGNUP_TWO_WEEKS-perspective_WEB_7e744763-782a-4c73-bc73-3a7d048b93ab_small.jpg"
+          src={BACKGROUND_IMAGE}
           alt="backgroundImage"
         />
       </div>
